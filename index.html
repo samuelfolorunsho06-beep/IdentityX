@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070707" />
+  <meta name="description" content="Premium Digital Portfolio Experiences built to help professionals stand out, look premium and present their value beyond a CV." />
+  <title>IdentityX | Personal authority, engineered</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#060606;
+      --bg-2:#0a0a0a;
+      --card:#0f0f0f;
+      --card-2:#121212;
+      --text:#f5f2ea;
+      --muted:#a6a198;
+      --line:rgba(255,255,255,.10);
+      --gold:#e7bd66;
+      --gold-2:#f6dc9c;
+      --green:#7fd1a5;
+      --max:1180px;
+      --shadow:0 24px 80px rgba(0,0,0,.38);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 15% 4%, rgba(231,189,102,.12), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(87,113,255,.08), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      font-family:"DM Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(calc(100% - 36px),var(--max));margin:0 auto}
+    .grain{
+      position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.035;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+    }
+
+    /* nav */
+    nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(6,6,6,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      height:72px; display:flex; align-items:center; justify-content:space-between;
+      gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:37px;height:37px;border-radius:50%;
+      display:grid;place-items:center;
+      background:
+        radial-gradient(circle at 32% 28%, #fff4c9 0 7%, transparent 8%),
+        linear-gradient(145deg,#f2d98f,#b97820);
+      color:#111;font-family:"Playfair Display",serif;font-style:italic;
+      font-weight:700;font-size:22px;
+      box-shadow:0 0 36px rgba(231,189,102,.20), inset 0 1px 0 rgba(255,255,255,.45);
+    }
+    .brand-word{
+      display:flex;align-items:baseline;gap:2px;
+      font-family:"Manrope",sans-serif;font-weight:800;
+      font-size:20px;letter-spacing:-.055em;
+    }
+    .brand-word .identity{color:#f8f4ec}
+    .brand-word .x{
+      margin-left:1px;
+      font-family:"Playfair Display",serif;font-style:italic;font-weight:600;
+      font-size:27px;line-height:1;
+      background:linear-gradient(180deg,#fff0bd,#d6a847);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .nav-links{display:flex;gap:28px;color:#c7c2ba;font-size:14px}
+    .nav-links a:hover{color:white}
+    .nav-cta{
+      padding:11px 16px;border:1px solid rgba(231,189,102,.35);border-radius:999px;
+      background:rgba(231,189,102,.09);color:#f6dc9c;font-size:14px;font-weight:700;
+    }
+
+    /* hero */
+    .hero{
+      min-height:calc(100vh - 72px); display:flex;align-items:center;
+      position:relative; z-index:1; padding:90px 0 80px;
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      top:36px;right:-3%;bottom:-20px;
+      width:55%;
+      background:url("hero-man.png") right center/contain no-repeat;
+      opacity:.72;
+      filter:saturate(.85) contrast(1.05);
+      pointer-events:none;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      inset:0;
+      background:
+        linear-gradient(90deg,#060606 0%,rgba(6,6,6,.94) 38%,rgba(6,6,6,.44) 63%,rgba(6,6,6,.16) 100%),
+        linear-gradient(0deg,#060606 0%,transparent 34%);
+      pointer-events:none;
+    }
+
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+    .eyebrow{
+      position:relative;
+      display:inline-block;
+      padding:0;
+      margin-bottom:24px;
+      border:0;
+      background:transparent;
+      color:#d7d0c4;
+      box-shadow:none;
+      text-transform:none;
+    }
+    .eyebrow-copy{
+      display:flex;flex-direction:column;gap:2px;
+      padding-bottom:4px;border-bottom:1px solid rgba(231,189,102,.22);
+    }
+    .eyebrow-copy strong{
+      font-family:"Playfair Display",serif;
+      font-style:italic;font-weight:600;
+      color:#f0cf7f;font-size:17px;line-height:1;
+      letter-spacing:.01em;
+    }
+    .eyebrow-copy span{
+      font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+      color:#928b80;font-weight:700;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px rgba(127,209,165,.7)}
+    h1{
+      margin:0;
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(54px,7vw,96px); line-height:.94; letter-spacing:-.065em;
+      max-width:850px;
+    }
+    h1 .gold{
+      background:linear-gradient(180deg,#fff2c5 8%,#e5b95f 94%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero-copy{
+      font-size:clamp(18px,2vw,22px);line-height:1.6;color:#bdb8af;max-width:680px;margin:28px 0 34px;
+    }
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      border-radius:999px;padding:15px 21px;font-weight:800;border:1px solid transparent;
+      transition:.25s ease; cursor:pointer;
+    }
+    .btn-primary{
+      color:#15110a;background:linear-gradient(135deg,#f3db9b,#c88e32);
+      box-shadow:0 18px 45px rgba(206,151,56,.18);
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 22px 55px rgba(206,151,56,.28)}
+    .btn-ghost{border-color:var(--line);background:rgba(255,255,255,.035);color:#f4f1ea}
+    .btn-ghost:hover{background:rgba(255,255,255,.07)}
+    .microproof{display:flex;gap:20px;align-items:center;margin-top:32px;color:#89857e;font-size:13px}
+    .avatars{display:flex}
+    .avatar{
+      width:29px;height:29px;border-radius:50%;display:grid;place-items:center;
+      border:2px solid #080808;margin-left:-7px;background:#181818;color:#d7d2ca;font-size:10px;font-weight:800;
+    }
+    .avatar:first-child{margin-left:0}
+
+    .hero-stage{position:relative;min-height:570px;perspective:1200px}
+    .hero-face{display:none}
+    .hero-face svg{width:100%;height:100%;display:block}
+    .glow{
+      position:absolute;width:390px;height:390px;border-radius:50%;
+      background:rgba(231,189,102,.13);filter:blur(80px);right:-80px;top:50px;
+    }
+    .browser{
+      position:absolute;right:-10px;top:35px;width:min(100%,560px);
+      border:1px solid rgba(255,255,255,.11);border-radius:24px;
+      background:linear-gradient(145deg,#121212,#090909);
+      box-shadow:0 40px 110px rgba(0,0,0,.6);
+      overflow:hidden; transform:rotateY(-9deg) rotateX(3deg) rotateZ(1deg);
+    }
+    .browser-top{
+      height:45px;border-bottom:1px solid rgba(255,255,255,.06);
+      display:flex;align-items:center;gap:7px;padding:0 15px;background:#0b0b0b;
+    }
+    .circle{width:8px;height:8px;border-radius:50%;background:#373737}
+    .bar{height:18px;flex:1;max-width:260px;border-radius:999px;background:#151515;margin-left:8px}
+    .site-preview{padding:28px}
+    .preview-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#928b7e}
+    .preview-title{
+      font-family:"Manrope";font-size:42px;line-height:1.02;letter-spacing:-.05em;
+      margin:12px 0 12px;max-width:390px
+    }
+    .preview-title em{font-family:"Playfair Display";font-weight:600;color:#e5c57a}
+    .preview-copy{color:#8f8a82;font-size:12px;line-height:1.65;max-width:360px}
+    .preview-cta{margin-top:22px;width:118px;height:34px;border-radius:999px;background:#e1bb69}
+    .preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+    .preview-card{height:125px;border:1px solid rgba(255,255,255,.07);border-radius:15px;background:linear-gradient(145deg,#151515,#0d0d0d);padding:13px}
+    .preview-card.one{background:linear-gradient(145deg,rgba(225,187,105,.18),#111)}
+    .preview-card span{font-size:9px;color:#8f8a82}
+    .preview-card strong{display:block;font-size:17px;margin-top:44px;letter-spacing:-.03em}
+    .phone{
+      position:absolute;left:12px;bottom:0;width:190px;height:385px;border:1px solid rgba(255,255,255,.14);
+      border-radius:34px;padding:9px;background:#090909;box-shadow:0 35px 75px rgba(0,0,0,.55);
+      transform:rotateZ(-6deg);
+    }
+    .phone-screen{height:100%;border-radius:26px;background:linear-gradient(180deg,#17130c,#0b0b0b 30%);padding:18px 13px;overflow:hidden}
+    .phone-notch{width:55px;height:13px;background:#070707;border-radius:999px;margin:-11px auto 32px}
+    .phone-kicker{font-size:8px;color:#d8b768;letter-spacing:.12em}
+    .phone-title{font-family:"Manrope";font-weight:800;font-size:24px;line-height:.95;letter-spacing:-.05em;margin-top:8px}
+    .phone-line{height:6px;border-radius:9px;background:#242424;margin-top:10px}
+    .phone-line.short{width:66%}
+    .phone-btn{height:27px;border-radius:999px;background:#d4ac59;margin-top:18px;width:90px}
+    .phone-card{height:96px;border-radius:14px;background:#151515;border:1px solid rgba(255,255,255,.06);margin-top:22px}
+
+    /* sections */
+    section{position:relative;z-index:1;padding:110px 0}
+    .section-kicker{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#d8b768;font-weight:700}
+    .section-title{font-family:"Manrope";font-size:clamp(38px,5vw,66px);line-height:1.02;letter-spacing:-.05em;margin:15px 0 18px;max-width:840px}
+    .section-copy{color:#a8a39a;font-size:18px;line-height:1.7;max-width:700px}
+
+    .problem{border-top:1px solid var(--line)}
+    .problem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:start}
+    .problem-cards{display:grid;gap:12px}
+    .problem-card{
+      padding:20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);
+      display:grid;grid-template-columns:46px 1fr;gap:15px;align-items:start;
+    }
+    .problem-icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:#151515;color:#e7bd66;font-weight:900}
+    .problem-card h3{margin:1px 0 7px;font-size:17px}
+    .problem-card p{margin:0;color:#918d86;line-height:1.55;font-size:14px}
+
+    .value-board{
+      margin-top:58px;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#0b0b0b;
+      box-shadow:var(--shadow);
+    }
+    .value-row{display:grid;grid-template-columns:.8fr 1.2fr;border-bottom:1px solid var(--line)}
+    .value-row:last-child{border-bottom:none}
+    .value-left,.value-right{padding:28px}
+    .value-left{border-right:1px solid var(--line);color:#8e8981;font-size:14px}
+    .value-right{font-family:"Manrope";font-weight:700;font-size:19px;letter-spacing:-.02em}
+    .value-right b{color:#e6c170}
+
+    .work-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:48px}
+    .project{
+      border:1px solid var(--line);border-radius:24px;background:#0d0d0d;overflow:hidden;
+      position:relative;min-width:0;
+    }
+    .project.large{grid-row:span 2}
+    .project-visual{min-height:310px;aspect-ratio:16/10;background:
+      radial-gradient(circle at 70% 15%, rgba(231,189,102,.18), transparent 28%),
+      linear-gradient(145deg,#19150f,#0c0c0c 50%,#111);
+      padding:30px;position:relative;overflow:hidden
+    }
+    .mock{
+      position:absolute;border:1px solid rgba(255,255,255,.10);border-radius:19px;background:#0a0a0a;box-shadow:0 28px 65px rgba(0,0,0,.45);
+    }
+    .mock.desktop{left:8%;top:11%;width:83%;height:67%;transform:rotate(-2deg);padding:18px}
+    .mock.mobile{right:7%;bottom:4%;width:27%;height:50%;border-radius:26px;padding:10px}
+    .mock-head{height:8px;width:36%;border-radius:99px;background:#caa454;margin-bottom:24px}
+    .mock-big{
+      font-family:"Manrope";
+      font-size:clamp(18px,2.35vw,34px);
+      font-weight:800;line-height:1.03;letter-spacing:-.045em;
+      width:84%;text-wrap:balance;
+    }
+    .visual-copy{
+      font-size:clamp(17px,2vw,27px)!important;
+      line-height:1.04!important;
+      width:84%!important;
+      max-width:360px;
+      text-wrap:balance;
+    }
+
+    .phone-proof{
+      width:100%!important;
+      display:flex!important;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+      font-size:14px!important;
+      line-height:1.02!important;
+      letter-spacing:-.045em!important;
+      white-space:normal!important;
+      overflow:visible!important;
+    }
+    .phone-proof span{
+      display:block;
+      width:100%;
+      font-size:14px;
+      line-height:1.02;
+      white-space:nowrap;
+      overflow:visible;
+      letter-spacing:-.045em;
+    }
+    .mock-lines{margin-top:18px;display:grid;gap:7px}
+    .mock-lines i{display:block;height:6px;border-radius:99px;background:#1f1f1f}
+    .mock-lines i:nth-child(2){width:75%}
+    .mock-chip{width:95px;height:28px;border-radius:99px;background:#d3aa55;margin-top:18px}
+    .project-info{padding:24px 26px 30px;position:relative;z-index:3;background:#0d0d0d}
+    .project-info small{color:#8f8a82}
+    .project-info h3{font-family:"Manrope";font-size:26px;letter-spacing:-.04em;margin:7px 0}
+    .project-info p{margin:0;color:#8f8a82;font-size:14px;line-height:1.55}
+
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+    .step{border:1px solid var(--line);border-radius:22px;padding:26px;background:rgba(255,255,255,.022)}
+    .step-no{font-family:"Manrope";font-size:13px;color:#d9b764;margin-bottom:55px}
+    .step h3{font-family:"Manrope";font-size:23px;letter-spacing:-.03em;margin:0 0 10px}
+    .step p{color:#8f8a82;font-size:14px;line-height:1.6;margin:0}
+
+    .offer{
+      padding:110px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    }
+    .offer-box{
+      border:1px solid rgba(231,189,102,.24);border-radius:30px;padding:clamp(28px,5vw,58px);
+      background:
+        radial-gradient(circle at 85% 10%,rgba(231,189,102,.14),transparent 30%),
+        linear-gradient(145deg,#11100d,#090909);
+    }
+    .offer-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .price-card{
+      border:1px solid var(--line);border-radius:24px;padding:28px;background:rgba(0,0,0,.24)
+    }
+    .price-label{color:#938e85;font-size:13px}
+    .price{
+      font-family:"Manrope";font-size:clamp(38px,4.6vw,52px);
+      letter-spacing:-.06em;margin:8px 0;white-space:nowrap;
+    }
+    .price span{font-size:16px;color:#9a958d;letter-spacing:0}
+    .features{display:grid;gap:12px;margin:24px 0}
+    .feature{display:flex;gap:10px;color:#c5c0b8;font-size:14px}
+    .tick{color:#e5bd65}
+
+    .faq{max-width:870px}
+    .faq-item{border-top:1px solid var(--line)}
+    .faq-btn{
+      width:100%;padding:23px 0;background:none;border:none;color:white;
+      display:flex;align-items:center;justify-content:space-between;text-align:left;cursor:pointer;
+      font-size:17px;font-weight:700
+    }
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease;color:#969188;line-height:1.65}
+    .faq-item.open .faq-answer{max-height:180px;padding-bottom:23px}
+    .plus{transition:.25s}
+    .faq-item.open .plus{transform:rotate(45deg)}
+
+    .final{
+      padding:130px 0 150px;text-align:center;
+      background:radial-gradient(circle at 50% 55%,rgba(231,189,102,.12),transparent 33%);
+    }
+    .final .section-title{margin-left:auto;margin-right:auto;max-width:930px}
+    .final .section-copy{margin:0 auto 32px}
+    .final-note{margin-top:18px;color:#77736c;font-size:12px}
+
+    footer{padding:28px 0 90px;border-top:1px solid var(--line);color:#77736c;font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+
+    .float-cta{
+      position:fixed;right:12px;bottom:92px;z-index:60;
+      width:54px;height:54px;border-radius:50%;
+      display:grid;place-items:center;
+      color:#15110a;font-weight:900;font-size:22px;
+      background:linear-gradient(135deg,#f5dfa5,#c98d2f);
+      box-shadow:0 18px 52px rgba(216,161,59,.35);
+      border:1px solid rgba(255,255,255,.28);
+      animation:floaty 3s ease-in-out infinite;
+    }
+    .float-cta::before{
+      content:"✦";
+      font-size:18px;
+      transform:translateY(-1px) rotate(8deg);
+    }
+    .float-cta::after{
+      content:"";
+      position:absolute;right:9px;top:8px;
+      font-size:10px;font-weight:900;
+      opacity:.72;
+    }
+    .float-cta span{display:none}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .hero{padding-top:52px}
+      .hero-grid,.problem-grid,.offer-grid{grid-template-columns:1fr}
+      .hero-stage{min-height:500px;margin-top:20px}
+      .browser{right:-35px;width:93%}
+      .phone{left:0;width:165px;height:335px}
+      .work-grid{grid-template-columns:1fr}
+      .project.large{grid-row:auto}
+      .steps{grid-template-columns:1fr}
+      .value-row{grid-template-columns:1fr}
+      .value-left{border-right:0;border-bottom:1px solid var(--line);padding-bottom:13px}
+      .value-right{padding-top:16px}
+    }
+    @media(max-width:560px){
+      .wrap{width:min(calc(100% - 24px),var(--max))}
+      .hero::before{
+        top:70px;right:-27%;bottom:28px;
+        width:78%;
+        opacity:.58;
+        background-position:right center;
+        background-size:contain;
+      }
+      .hero::after{
+        background:
+          linear-gradient(90deg,#060606 0%,rgba(6,6,6,.93) 38%,rgba(6,6,6,.50) 64%,rgba(6,6,6,.12) 100%),
+          linear-gradient(0deg,#060606 0%,rgba(6,6,6,.18) 44%,transparent 72%);
+      }
+
+      .project-info h3,.mock-big,.value-right,.section-title{overflow-wrap:anywhere}
+      .price{font-size:clamp(34px,9.5vw,46px);line-height:1;white-space:nowrap}
+      .price span{display:block;margin-top:10px;line-height:1.4;font-size:13px;white-space:normal}
+      .offer-box{overflow:hidden}
+      .price-card{padding:24px 20px}
+      .price-label{font-size:12px}
+      .hero{min-height:auto;padding:45px 0 70px}
+      h1{font-size:clamp(47px,15vw,70px);text-shadow:0 8px 28px rgba(0,0,0,.28)}
+      .hero-copy{font-size:17px;max-width:88%;position:relative;z-index:2}
+      .hero h1{position:relative;z-index:2;max-width:96%;padding-right:14px;overflow:visible;box-sizing:border-box;letter-spacing:-.045em}
+      .hero .eyebrow,.hero-actions,.microproof{position:relative;z-index:2}
+      .hero-actions .btn{width:100%}
+      .microproof{align-items:flex-start}
+      .hero-stage{min-height:405px}
+      .browser{top:20px;right:-45px;width:105%;transform:rotateY(-4deg) rotateZ(1deg)}
+      .site-preview{padding:20px}
+      .preview-title{font-size:31px}
+      .preview-grid{display:none}
+      .phone{width:140px;height:285px;bottom:5px}
+      .phone-title{font-size:19px}
+      section{padding:80px 0}
+      .project.large{min-height:0}
+      .project-visual{min-height:280px;aspect-ratio:4/3}
+      .project-info p{overflow:visible}
+      .hero-face{right:-108px;top:-6px;width:285px;height:420px;opacity:.31}
+      .visual-copy{font-size:23px!important;line-height:1.035!important;width:88%!important}
+      .mock.desktop{left:7%;width:86%;padding:16px}
+      .mock.mobile{right:4%;width:39%;padding:10px}
+      .float-cta{left:auto;right:10px;bottom:82px;width:52px;height:52px}
+      footer{padding-bottom:100px}
+    }
+  .hero-proof-tagline{margin:12px 0 0!important;font-size:14px!important;line-height:1.45!important;color:rgba(235,226,211,.62)!important;font-style:italic;letter-spacing:.01em}.hero-proof-tagline::first-letter{color:inherit}
+
+/* V18: immediate Digital Portfolio explainer */
+.portfolio-explainer{padding:42px 0 10px}
+.portfolio-explainer-inner{max-width:880px;margin:0 auto;text-align:center}
+.portfolio-explainer .app-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d9ae56;font-weight:800;margin-bottom:13px}
+.portfolio-explainer h2{font-size:clamp(30px,4.7vw,52px);line-height:1.02;letter-spacing:-.045em;margin:0 0 16px}
+.portfolio-explainer p{max-width:760px;margin:0 auto;color:#aaa39a;font-size:17px;line-height:1.75}
+.portfolio-explainer strong{color:#eee4d5}
+@media(max-width:650px){.portfolio-explainer{padding:32px 0 4px}.portfolio-explainer-inner{text-align:left}.portfolio-explainer p{font-size:15px;line-height:1.7}}
+
+</style>
+<meta name="identityx-variant" content="professional">
+
+<style>
+/* V9 requested-only refinements */
+.hero-actions{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  gap:12px!important;
+  align-items:center!important;
+}
+.hero-actions .btn{
+  width:auto!important;
+  min-width:0!important;
+  padding:14px 18px!important;
+  flex:0 0 auto!important;
+}
+.hero-actions .btn-primary{min-width:150px!important;}
+.hero-actions .btn-ghost{min-width:168px!important;}
+.wa-icon{width:19px;height:19px;display:block;flex:0 0 auto;}
+.float-cta::after{content:""!important;}
+.hero-face{top:-38px!important;}
+@media(max-width:560px){
+  .hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:10px!important;
+    width:100%!important;
+  }
+  .hero-actions .btn{
+    width:100%!important;
+    min-width:0!important;
+    padding:13px 10px!important;
+    font-size:14px!important;
+    white-space:nowrap!important;
+  }
+  .hero-face{top:-38px!important;}
+}
+</style>
+
+<style>
+/* V10 requested-only refinement: soften hero portrait presence */
+.hero-face{opacity:.20!important;filter:grayscale(1) contrast(.95) brightness(.78)!important;mix-blend-mode:screen!important;}
+@media(max-width:560px){.hero-face{opacity:.16!important;filter:grayscale(1) contrast(.92) brightness(.72)!important;}}
+</style>
+
+
+<style>
+/* V11 conversion layer — inherits V10 visual language */
+.segment-proof{padding:34px 0 8px}
+.segment-proof .segment-card{
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:28px;
+  padding:30px;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(216,161,59,.10),transparent 32%),
+    rgba(255,255,255,.025);
+}
+.segment-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#d9ae56;font-weight:800;margin-bottom:12px}
+.segment-proof h2{font-size:clamp(28px,4vw,48px);line-height:1.02;letter-spacing:-.045em;max-width:760px;margin:0 0 14px}
+.segment-proof p{max-width:720px;color:#aaa39a;font-size:17px;line-height:1.7;margin:0}
+.segment-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+.segment-point{padding:15px;border-radius:16px;border:1px solid rgba(255,255,255,.08);font-size:13px;line-height:1.45;color:#d8d2c8}
+.segment-point b{color:#e5b957;margin-right:7px}
+@media(max-width:650px){
+ .segment-proof{padding-top:24px}
+ .segment-proof .segment-card{padding:22px 18px}
+ .segment-points{grid-template-columns:1fr}
+}
+</style>
+
+<style>
+/* V12 personal positioning showroom */
+.ix12{padding:68px 0 24px}.ix12 .ey{color:#d9ae56;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.ix12 h2{font-size:clamp(34px,5.2vw,64px);line-height:.98;letter-spacing:-.055em;margin:12px 0 15px}.ix12 .lead{max-width:720px;color:#aaa39a;font-size:17px;line-height:1.7}.ix-compare{display:grid;grid-template-columns:.82fr 1.18fr;gap:14px;margin-top:28px}.ix-panel{border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;background:rgba(255,255,255,.025);overflow:hidden}.ix-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8e887f;font-weight:800;margin-bottom:18px}.ix-paper{background:#e9e5dc;color:#24211d;border-radius:8px;padding:25px 22px;min-height:350px}.ix-paper h3{margin:0;color:#1d1b18}.ix-paper small{color:#777}.line{height:6px;background:#c7c2b8;border-radius:8px;margin-top:13px}.line.s{width:62%}.line.m{width:82%}.ph{font-size:8px;font-weight:900;letter-spacing:.1em;margin-top:23px;color:#555}.ix-note{font-size:13px;color:#89837b;line-height:1.55;margin-top:16px}.ix-demo{background:radial-gradient(circle at 82% 12%,rgba(215,164,65,.14),transparent 34%),#0b0b0b;padding:0}.demo-top{padding:25px 27px 10px;display:flex;justify-content:space-between;font-size:10px}.demo-top b{letter-spacing:.1em}.demo-top i{color:#d9ae56;font-style:normal}.demo-hero{padding:30px 27px 25px;display:grid;grid-template-columns:1fr 130px;gap:16px;align-items:end}.demo-k{font-size:9px;color:#d9ae56;letter-spacing:.14em;text-transform:uppercase}.demo-hero h3{font-size:clamp(29px,4vw,48px);line-height:.95;letter-spacing:-.05em;margin:9px 0}.demo-hero p{font-size:11px;color:#a8a198;line-height:1.6}.photo{height:165px;border-radius:80px 80px 16px 16px;border:1px solid rgba(218,174,86,.28);background:radial-gradient(circle at 50% 30%,rgba(226,184,95,.35),transparent 13%),linear-gradient(145deg,#19150f,#070707);position:relative}.photo:after{content:'YOUR PHOTO';position:absolute;bottom:14px;width:100%;text-align:center;font-size:8px;letter-spacing:.13em;color:#847a68}.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}.metric{padding:16px;border-right:1px solid rgba(255,255,255,.08)}.metric:last-child{border:0}.metric strong{display:block;color:#e1b55d;font-size:19px}.metric span{font-size:9px;color:#89837b}.demo-work{padding:20px 27px 26px}.work{display:grid;grid-template-columns:1fr 1fr;gap:9px}.work div{border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:13px;font-size:11px}.work small{display:block;color:#817b73;margin-top:5px;line-height:1.4}.punch{text-align:center;padding:34px 10px}.punch strong{font-size:clamp(24px,4vw,42px);letter-spacing:-.04em;display:block}.punch span{display:block;color:#9c958c;margin-top:8px}.offer12,.brief12{border:1px solid rgba(217,174,86,.22);border-radius:26px;padding:27px;background:rgba(217,174,86,.04);margin-top:10px}.offer12{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.offer12 h3{font-size:28px;margin:6px 0}.offer12 p,.brief12>p{color:#9d968d;line-height:1.6}.price12{color:#e0b45c;font-size:27px;font-weight:900;white-space:nowrap}.brief12{margin-top:28px;border-color:rgba(255,255,255,.1)}.brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:20px}.bf{display:flex;flex-direction:column;gap:6px}.bf.full{grid-column:1/-1}.bf label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#8f887f;font-weight:800}.bf input,.bf textarea,.bf select{border:1px solid rgba(255,255,255,.11);background:#0b0b0b;color:#eee4d5;border-radius:13px;padding:14px;font:inherit}.bf textarea{min-height:90px}.brief12 button{margin-top:16px}.brief-help{font-size:11px;color:#79736b;margin-top:10px}@media(max-width:700px){.ix-compare,.offer12,.brief-grid{grid-template-columns:1fr}.demo-hero{grid-template-columns:1fr 95px;padding:25px 17px}.photo{height:125px}.demo-top,.demo-work{padding-left:17px;padding-right:17px}.ix-panel{padding:18px}.ix-demo{padding:0}.bf.full{grid-column:auto}}
+</style>
+
+<style>
+/* V13 Personal form alignment fix */
+.brief12,.brief12 *{box-sizing:border-box}
+.brief-grid{width:100%;min-width:0}
+.bf{min-width:0;width:100%}
+.bf input,.bf textarea,.bf select{display:block;width:100%;max-width:100%;min-width:0}
+.brief12 form{width:100%;overflow:hidden}
+@media(max-width:700px){.brief12{padding:22px 16px}.bf input,.bf textarea,.bf select{font-size:16px}}
+</style>
+
+
+<style>
+/* V15: concrete application-use persuasion layer */
+
+.positioning-hook{padding:54px 0 8px}
+.positioning-shell{position:relative;overflow:hidden;border:1px solid rgba(217,174,86,.20);border-radius:30px;padding:38px;background:radial-gradient(circle at 85% 15%,rgba(217,174,86,.13),transparent 34%),rgba(255,255,255,.025)}
+.positioning-shell .app-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d9ae56;font-weight:800;margin-bottom:14px}
+.positioning-shell h2{font-size:clamp(34px,5.4vw,64px);line-height:.98;letter-spacing:-.055em;margin:0;max-width:900px}
+.positioning-lead{font-size:clamp(20px,2.7vw,30px);line-height:1.25;color:#d8d0c4;max-width:850px;margin:18px 0 0}
+.positioning-turn{display:inline-block;margin:24px 0 18px;color:#d9ae56;font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:-.04em}
+.positioning-copy{max-width:760px;color:#aaa198;line-height:1.7;margin:0;font-size:15px}
+.positioning-punch{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.positioning-punch strong{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);border-radius:999px;padding:10px 14px;font-size:12px;letter-spacing:.01em}
+@media(max-width:650px){.positioning-hook{padding:34px 0 4px}.positioning-shell{padding:26px 18px;border-radius:24px}.positioning-lead{font-size:19px}.positioning-copy{font-size:14px}.positioning-punch{gap:8px}.positioning-punch strong{font-size:11px;padding:9px 11px}}
+
+.application-proof{padding:42px 0 10px}
+.application-proof .app-shell{border:1px solid rgba(255,255,255,.10);border-radius:28px;padding:28px;background:radial-gradient(circle at 82% 18%,rgba(217,174,86,.09),transparent 34%),rgba(255,255,255,.02)}
+.application-proof .app-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d9ae56;font-weight:800;margin-bottom:10px}
+.application-proof h2{font-size:clamp(30px,4.7vw,54px);line-height:1;letter-spacing:-.05em;margin:0 0 12px;max-width:780px}
+.application-proof .app-intro{color:#a9a198;line-height:1.65;max-width:680px;margin:0 0 22px}
+.application-compare{display:grid;grid-template-columns:1fr 44px 1fr;gap:12px;align-items:center}
+.application-card{border:1px solid rgba(255,255,255,.09);border-radius:19px;padding:18px;min-width:0;background:rgba(0,0,0,.16)}
+.application-card.remember{border-color:rgba(217,174,86,.28);background:rgba(217,174,86,.035)}
+.application-card .app-label{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#858078;font-weight:800;margin-bottom:13px}
+.application-card.remember .app-label{color:#d9ae56}
+.file-pill{display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 13px;margin-top:8px;font-size:13px;color:#d8d2c8;min-width:0}
+.file-pill span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-pill.gold{border-color:rgba(217,174,86,.25);color:#f0d18f}
+.file-icon{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.06);display:grid;place-items:center;flex:0 0 auto;font-size:12px}
+.file-pill.gold .file-icon{background:rgba(217,174,86,.12)}
+.app-vs{text-align:center;color:#766f66;font-size:11px;font-weight:900;letter-spacing:.12em}
+.application-payoff{text-align:center;padding:25px 8px 2px}
+.application-payoff strong{display:block;font-size:clamp(22px,3.4vw,36px);letter-spacing:-.035em}
+.application-payoff span{display:block;color:#999188;margin-top:7px;line-height:1.55}
+.use-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:19px}
+.use-strip span{border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:8px 11px;font-size:10px;color:#99928a}
+@media(max-width:650px){.application-proof{padding-top:30px}.application-proof .app-shell{padding:22px 16px}.application-compare{grid-template-columns:1fr}.app-vs{padding:2px 0}.application-card{padding:15px}.file-pill{font-size:12px}}
+</style>
+
+  <link rel="preload" as="image" href="hero-man.png">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <div class="mark">X</div>
+      <span class="brand-word"><span class="identity">Identity</span><span class="x">X</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#why">Why it matters</a>
+      <a href="#portfolio-demo">See the experience</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Investment</a>
+    </div>
+    <a class="nav-cta" href="#contact">Start a project</a>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">
+          <span class="eyebrow-copy">
+            <strong>Premium digital identity</strong>
+            <span>For ambitious people & businesses</span>
+          </span>
+        </div>
+        <h1>Yes, your CV can get you considered. <span class="gold">Your Digital Portfolio makes you harder to ignore.</span></h1>
+        <p class="hero-copy">Give recruiters, employers and clients one premium link that makes your experience, proof and personality feel impossible to overlook.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2 22l5.2-1.5A9.9 9.9 0 1 0 12 2Zm0 17.8c-1.6 0-3.1-.5-4.4-1.3l-.3-.2-3 .9.9-2.9-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.5-.8-2.5-1.4-3.5-3.1-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.8 3 .7.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3Z"/></svg><span>Let's Build</span></a>
+          <a class="btn btn-ghost" href="#portfolio-demo">See the difference</a>
+        </div>
+        <div class="microproof">
+          <div class="avatars">
+            <div class="avatar">CEO</div><div class="avatar">MD</div><div class="avatar">PRO</div>
+          </div>
+          <span>Built for professionals, founders and businesses that care how they are perceived.</span>
+        </div>
+      </div>
+
+      <div class="hero-stage reveal">
+
+        <div class="hero-face" aria-hidden="true">
+          <svg viewBox="0 0 360 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="skin" x1="70" y1="30" x2="300" y2="500" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F0E8DB"/>
+                <stop offset=".48" stop-color="#AAA39A"/>
+                <stop offset="1" stop-color="#5C5853"/>
+              </linearGradient>
+              <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                gradientTransform="translate(190 150) rotate(90) scale(180 150)">
+                <stop stop-color="white" stop-opacity=".34"/>
+                <stop offset="1" stop-color="white" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <path d="M93 511C112 444 122 417 145 391C163 370 174 350 176 323C139 290 121 248 122 199C123 121 168 62 229 53C286 44 326 86 329 151C331 194 318 222 296 247C284 260 279 275 279 298C281 333 295 358 320 383C338 401 349 432 360 499L93 511Z" fill="url(#skin)"/>
+            <path d="M168 76C187 45 229 28 267 38C308 49 333 82 334 124C311 91 289 78 256 80C220 82 188 95 159 118C158 100 160 90 168 76Z" fill="#211F1D"/>
+            <path d="M122 192C124 141 145 105 180 84C165 117 160 159 165 210C170 263 189 300 220 324C185 318 157 299 139 268C125 244 119 220 122 192Z" fill="#48443F" opacity=".7"/>
+            <path d="M267 150C286 158 300 174 306 197C292 191 278 192 263 201C259 184 260 166 267 150Z" fill="#6C6760" opacity=".55"/>
+            <path d="M251 226C271 232 289 230 304 220C299 246 285 266 264 279C255 264 251 247 251 226Z" fill="#5F5A54" opacity=".52"/>
+            <ellipse cx="215" cy="162" rx="128" ry="151" fill="url(#shine)"/>
+          </svg>
+        </div>
+        <div class="glow"></div>
+        <div class="browser">
+          <div class="browser-top">
+            <span class="circle"></span><span class="circle"></span><span class="circle"></span><span class="bar"></span>
+          </div>
+          <div class="site-preview">
+            <div class="preview-label">Your name • your reputation • one link</div>
+            <div class="preview-title">Be the obvious <em>choice.</em></div>
+            <div class="preview-copy">A digital presence that makes your experience, credibility and value immediately visible.</div>
+            <div class="preview-cta"></div>
+            <div class="preview-grid">
+              <div class="preview-card one"><span>POSITIONING</span><strong>Premium by design.</strong></div>
+              <div class="preview-card"><span>PROOF</span><strong>Show. Don't claim.</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-kicker">YOUR DIGITAL IDENTITY</div>
+            <div class="phone-title">Credibility<br>in your pocket.</div>
+            <div class="phone-line"></div><div class="phone-line short"></div>
+            <div class="phone-btn"></div>
+            <div class="phone-card"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="portfolio-explainer" id="why" aria-labelledby="portfolio-explainer-title">
+  <div class="wrap">
+    <div class="portfolio-explainer-inner reveal">
+      <div class="app-kicker">So, what exactly is a Digital Portfolio?</div>
+      <h2 id="portfolio-explainer-title">Your Digital Portfolio is simply <span class="gold">your personal website, built around you.</span></h2>
+      <p>It brings your <strong>experience, qualifications, skills, projects, achievements, certifications and proof of work</strong> together in one premium link you can share with recruiters, employers, clients or anyone you want to make a strong impression on. Instead of asking a CV alone to explain your value, your Digital Portfolio gives people a richer, more memorable way to <strong>see who you are and what you can bring to the table.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="positioning-hook" id="positioning-hook">
+  <div class="wrap">
+    <div class="positioning-shell reveal">
+      <div class="app-kicker">Before you add another certificate</div>
+      <h2>Maybe what you're missing isn't another credential.</h2>
+      <p class="positioning-lead">Maybe people simply aren't seeing the value of the credentials you already have.</p>
+      <div class="positioning-turn">Let's change that.</div>
+      <p class="positioning-copy">You've built the skills. Earned the qualifications. Done the work. When you're competing with other qualified people, how you present what you already have can become your unfair advantage and increase your perceived value before the conversation even begins.</p>
+      <div class="positioning-punch"><strong>Same qualifications.</strong><strong>Different presentation.</strong><strong>Different perception.</strong></div>
+    </div>
+  </div>
+</section>
+<section class="application-proof" id="application-advantage">
+  <div class="wrap">
+    <div class="app-shell">
+      <div class="app-kicker">The cost of blending in</div>
+      <h2>Think about the last opportunity you applied for.</h2>
+      <p class="app-intro">You sent your CV. So did almost everybody else. Same PDF format. Same list of qualifications. Same few seconds competing for attention. You may be exceptional, but if you're presented like everyone else, how quickly will they know?</p>
+      <div class="application-compare">
+        <div class="application-card">
+          <div class="app-label">What most people send</div>
+          <div class="file-pill"><span class="file-icon">CV</span><span>David_Adeyemi_CV.pdf</span></div>
+        </div>
+        <div class="app-vs">VS</div>
+        <div class="application-card remember">
+          <div class="app-label">What you can send</div>
+          <div class="file-pill"><span class="file-icon">CV</span><span>David_Adeyemi_CV.pdf</span></div>
+          <div class="file-pill gold"><span class="file-icon">✦</span><span>davidadeyemi.com</span></div>
+        </div>
+      </div>
+      <div class="application-payoff">
+        <strong>One gives them your qualifications. The other positions you as the real deal.</strong>
+        <span>You already did the hard work to become qualified. Don't let ordinary presentation make extraordinary effort look ordinary.</span>
+      </div>
+      <div class="use-strip"><span>CV applications</span><span>LinkedIn</span><span>Email applications</span><span>Cold outreach</span><span>Freelance pitches</span><span>Proposals</span><span>WhatsApp introductions</span><span>Networking</span></div>
+    </div>
+  </div>
+</section>
+<section class="ix12" id="portfolio-demo"><div class="wrap"><div class="ey">Stop making your CV do all the selling</div><h2>You built the experience.<br>Now package it like it matters.</h2><p class="lead">Your CV documents your qualifications. Your Digital Portfolio positions them. Your face, story, strongest work, achievements, results and credibility in one premium link. You're experiencing mine right now. Imagine what yours could say about you before you even speak.</p><div class="ix-compare"><div class="ix-panel"><div class="ix-label">The familiar experience</div><div class="ix-paper"><h3>David Adeyemi</h3><small>Product Designer · Lagos</small><div class="ph">PROFILE</div><div class="line"></div><div class="line m"></div><div class="line s"></div><div class="ph">EXPERIENCE</div><div class="line"></div><div class="line"></div><div class="line m"></div><div class="ph">SKILLS</div><div class="line m"></div><div class="line s"></div></div><div class="ix-note">Necessary. Professional. But often one document among many competing for the same attention.</div></div><div class="ix-panel ix-demo"><div class="demo-top"><b>DAVID<i>.</i></b><span>WORK · EXPERIENCE · CONTACT</span></div><div class="demo-hero"><div><div class="demo-k">Product Designer · Lagos</div><h3>I make complex products feel simple.</h3><p>Product thinker and designer focused on turning difficult customer journeys into clear, useful digital experiences.</p></div><div class="photo"></div></div><div class="metrics"><div class="metric"><strong>31%</strong><span>less onboarding drop-off</span></div><div class="metric"><strong>40k+</strong><span>users reached</span></div><div class="metric"><strong>6 yrs</strong><span>experience</span></div></div><div class="demo-work"><div class="ix-label">Selected impact</div><div class="work"><div><b>Fintech redesign</b><small>Clearer high-friction onboarding.</small></div><div><b>Growth system</b><small>Work connected to measurable outcomes.</small></div></div></div></div></div><div class="punch"><strong>Same person. Different presentation.</strong><span>The opportunity may be the same. Your presentation doesn't have to be.</span></div><div class="offer12"><div><div class="ey">IdentityX Digital Portfolio</div><h3>Your A+ positioning layer.</h3><p>A premium personal landing experience built around your story, achievements, work, proof and ambition, ready for your CV, LinkedIn, applications, proposals and cold outreach.</p></div><div class="price12">₦50k – ₦100k</div></div><div class="brief12" id="build-brief"><div class="ey">You've already done the hard part</div><h2>Now let's package it properly.</h2><p>Tell us who you are and what you're positioning yourself for. We'll turn your experience, proof and ambition into a Digital Portfolio built around you. After this brief, continue on WhatsApp to send your CV, photographs, certificates and project files.</p><form id="identityxBrief"><div class="brief-grid"><div class="bf"><label>Your name</label><input name="name" required placeholder="e.g. David Adeyemi"></div><div class="bf"><label>Role / profession</label><input name="role" required placeholder="e.g. Product Designer"></div><div class="bf full"><label>What are you trying to achieve?</label><select name="goal" required><option value="">Choose one</option><option>Stand out in job applications</option><option>Win freelance clients</option><option>Build professional authority</option><option>Showcase my work and achievements</option><option>Position myself for opportunities</option></select></div><div class="bf full"><label>Who do you want to reach?</label><input name="audience" placeholder="Recruiters, employers, clients, investors..."></div><div class="bf full"><label>Your strongest achievements / proof</label><textarea name="proof" placeholder="Results, awards, projects, experience, certifications..."></textarea></div><div class="bf full"><label>Existing link</label><input name="link" placeholder="LinkedIn, portfolio, Instagram..."></div></div><button class="btn btn-primary" type="submit"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2 22l5.2-1.5A9.9 9.9 0 1 0 12 2Zm0 17.8c-1.6 0-3.1-.5-4.4-1.3l-.3-.2-3 .9.9-2.9-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.5-.8-2.5-1.4-3.5-3.1-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.8 3 .7.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3Z"/></svg><span>Let's Build</span></button><div class="brief-help">You can send your CV, photos and supporting files directly on WhatsApp after this brief.</div></form></div></div></section>
+  <section id="process">
+    <div class="wrap">
+      <div class="section-kicker">From CV to stand-out positioning</div>
+      <h2 class="section-title reveal">Simple process. Premium positioning.</h2>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-no">01 / POSITION</div>
+          <h3>We find the real reason people should choose you.</h3>
+          <p>I structure the message around the buyer’s doubts, desired outcome and the strongest proof you already have.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-no">02 / BUILD</div>
+          <h3>We turn that into your premium Digital Portfolio Experience.</h3>
+          <p>Premium design, strong mobile behaviour, clear hierarchy and a story built around what makes you worth remembering.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-no">03 / SEND</div>
+          <h3>You get one premium link that speaks before you do.</h3>
+          <p>Attach it to your CV, LinkedIn, applications, proposals and cold messages. Your Digital Portfolio carries part of the positioning before the conversation begins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer" id="pricing">
+    <div class="wrap">
+      <div class="offer-box reveal">
+        <div class="offer-grid">
+          <div>
+            <div class="section-kicker">The investment</div>
+            <h2 class="section-title">Don't just be qualified. Look like the obvious choice.</h2>
+            <p class="section-copy">You've already invested in becoming valuable. IdentityX helps you present that value with the clarity, credibility and premium positioning it deserves.</p>
+          </div>
+          <div class="price-card">
+            <div class="price-label">Premium Digital Portfolio</div>
+            <div class="price">₦50k – ₦100k <span>depending on build specification</span></div>
+            <div class="features">
+              <div class="feature"><span class="tick">✓</span><span>Personal positioning & portfolio copy</span></div>
+              <div class="feature"><span class="tick">✓</span><span>Premium mobile-first portfolio design</span></div>
+              <div class="feature"><span class="tick">✓</span><span>Direct WhatsApp / call / email contact paths</span></div>
+              <div class="feature"><span class="tick">✓</span><span>Custom domain & hosting setup included</span></div>
+              <div class="feature"><span class="tick">✓</span><span>Launch-ready Digital Portfolio Experience</span></div>
+            </div>
+            <a class="btn btn-primary" href="#build-brief" style="width:100%"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2 22l5.2-1.5A9.9 9.9 0 1 0 12 2Zm0 17.8c-1.6 0-3.1-.5-4.4-1.3l-.3-.2-3 .9.9-2.9-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.5-.8-2.5-1.4-3.5-3.1-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.8 3 .7.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3Z"/></svg><span>Let's Build</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-kicker">Questions people ask before starting</div>
+      <h2 class="section-title reveal">No mystery.</h2>
+      <div class="faq reveal">
+        <div class="faq-item open">
+          <button class="faq-btn"><span>I already have Instagram / LinkedIn. Why do I need this?</span><span class="plus">＋</span></button>
+          <div class="faq-answer">Social profiles use fixed layouts. Your Digital Portfolio gives you one premium space where you control your story, proof, achievements and the impression you leave.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>Can I send the Digital Portfolio with my CV or proposal?</span><span class="plus">＋</span></button>
+          <div class="faq-answer">Yes. That is one of its strongest uses. Your CV gives the facts; your Digital Portfolio gives the reviewer a richer experience of who you are and what you can do.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>Will it work properly on phones?</span><span class="plus">＋</span></button>
+          <div class="faq-answer">Yes. Your Digital Portfolio is designed mobile-first because recruiters, employers and clients may open your link directly from WhatsApp, LinkedIn or email.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>What do I need before we start?</span><span class="plus">＋</span></button>
+          <div class="faq-answer">Your basic details, services or role, useful proof, images if available, and your preferred contact route. We shape the structure from there.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contact">
+    <div class="wrap reveal">
+      <div class="section-kicker">Your next opportunity may be one click away.</div>
+      <h2 class="section-title">Don’t just work hard. Work smart.</h2>
+      <p class="section-copy"> Present your value with one premium link built around you.</p>
+      <a id="wa-main" class="btn btn-primary" href="https://wa.me/2348069970348?text=Hi%20Samuel%2C%20I%20saw%20the%20IdentityX%20professional%20experience.%20I%20want%20to%20build%20my%20IdentityX%20Digital%20Portfolio." target="_blank" rel="noopener noreferrer"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2 22l5.2-1.5A9.9 9.9 0 1 0 12 2Zm0 17.8c-1.6 0-3.1-.5-4.4-1.3l-.3-.2-3 .9.9-2.9-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.5-.8-2.5-1.4-3.5-3.1-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.8 3 .7.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3Z"/></svg><span>Let's Build</span></a>
+      <div class="final-note">No pressure. Tell me what you do and I’ll tell you what I’d build around it.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div><strong style="color:#c9c4bb">IdentityX</strong> · Digital presence engineered for trust.</div>
+    <div>© <span id="year"></span> IdentityX. All rights reserved.</div>
+  </div>
+</footer>
+
+<a class="float-cta" id="wa-float" href="https://wa.me/2348069970348?text=Hi%20Samuel%2C%20I%20saw%20the%20IdentityX%20professional%20experience.%20I%20want%20to%20build%20my%20IdentityX%20Digital%20Portfolio." target="_blank" rel="noopener noreferrer" aria-label="Build now"><span>Build now</span></a>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("visible"); });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+  document.querySelectorAll(".faq-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const item=btn.parentElement;
+      item.classList.toggle("open");
+    });
+  });
+
+  // Lightweight CTA click analytics in localStorage.
+  // Replace with GA4/Meta Pixel later if desired.
+  function trackCTA(label){
+    const key="identityx_cta_clicks";
+    const current=Number(localStorage.getItem(key)||0);
+    localStorage.setItem(key,current+1);
+    console.log("CTA:",label,"Total:",current+1);
+  }
+  document.getElementById("wa-main").addEventListener("click",()=>trackCTA("main"));
+  document.getElementById("wa-float").addEventListener("click",()=>trackCTA("floating"));
+</script>
+
+<script>
+(function(){
+  const qs = new URLSearchParams(location.search);
+  const variant = document.querySelector('meta[name="identityx-variant"]')?.content || 'general';
+  const campaign = qs.get('campaign') || qs.get('c') || '';
+  const source = qs.get('src') || qs.get('utm_source') || '';
+  const lead = qs.get('lead') || '';
+
+  function stampWhatsApp(){
+    document.querySelectorAll('a[href*="wa.me/2348069970348"]').forEach(a=>{
+      try{
+        const u = new URL(a.href);
+        let msg = u.searchParams.get('text') || '';
+        const tags = [];
+        if (variant) tags.push('Experience: '+variant);
+        if (campaign) tags.push('Campaign: '+campaign);
+        if (source) tags.push('Source: '+source);
+        if (lead) tags.push('Lead: '+lead);
+        if(tags.length) msg += '\n\n['+tags.join(' | ')+']';
+        u.searchParams.set('text',msg);
+        a.href=u.toString();
+      }catch(e){}
+    });
+  }
+
+  window.IdentityX = {
+    variant, campaign, source, lead,
+    event:function(name,data){
+      const payload={name,variant,campaign,source,lead,at:Date.now(),...(data||{})};
+      try{
+        const log=JSON.parse(localStorage.getItem('identityx_events')||'[]');
+        log.push(payload); localStorage.setItem('identityx_events',JSON.stringify(log.slice(-200)));
+      }catch(e){}
+      window.dispatchEvent(new CustomEvent('identityx:event',{detail:payload}));
+    }
+  };
+
+  stampWhatsApp();
+  IdentityX.event('page_view');
+
+  let seen50=false, seenPrice=false;
+  addEventListener('scroll',()=>{
+    const max=document.documentElement.scrollHeight-innerHeight;
+    if(!seen50 && max>0 && scrollY/max>=.5){seen50=true;IdentityX.event('scroll_50');}
+    if(!seenPrice){
+      const price=document.querySelector('.price,.price-card,.offer-box');
+      if(price && price.getBoundingClientRect().top<innerHeight*.85){seenPrice=true;IdentityX.event('pricing_view');}
+    }
+  },{passive:true});
+
+  document.querySelectorAll('a[href*="wa.me/"]').forEach(a=>a.addEventListener('click',()=>IdentityX.event('whatsapp_click')));
+  document.querySelectorAll('a[href*="#work"],a[href*="#difference"]').forEach(a=>a.addEventListener('click',()=>IdentityX.event('difference_click')));
+})();
+</script>
+
+<script>document.getElementById('identityxBrief')?.addEventListener('submit',function(e){e.preventDefault();const f=new FormData(this);const x=["Hi Samuel, I've started my IdentityX Digital Portfolio brief.","","Name: "+f.get('name'),"Role / profession: "+f.get('role'),"Goal: "+f.get('goal'),"Target audience: "+f.get('audience'),"Strongest proof / achievements: "+f.get('proof'),"Existing link: "+f.get('link'),"","I'd like to continue the build conversation here."];if(window.IdentityX)IdentityX.event('brief_completed');location.href='https://wa.me/2348069970348?text='+encodeURIComponent(x.join('\n'));});</script>
+</body>
+</html>
